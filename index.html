@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bagepalli Property Listings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div>
+      <h1 data-i18n="siteTitle">Bagepalli Properties</h1>
+      <p data-i18n="siteSubtitle">Free local land, house, and plot listings</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="language-section" aria-label="Choose language">
+      <label for="languageSelect" data-i18n="languageLabel">Language</label>
+      <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="kn">ಕನ್ನಡ</option>
+        <option value="te">తెలుగు</option>
+      </select>
+    </section>
+
+    <section class="search-section" aria-label="Search listings">
+      <label for="searchInput" data-i18n="searchLabel">Search by place or price</label>
+      <input id="searchInput" type="search" placeholder="Example: Bagepalli, Gauribidanur, 500000" data-i18n-placeholder="searchPlaceholder">
+      <p class="hint" data-i18n="searchHint">Type a village, town, or maximum price.</p>
+    </section>
+
+    <section class="admin-section" aria-labelledby="adminTitle">
+      <div class="section-heading">
+        <h2 id="adminTitle" data-i18n="adminTitle">Admin Access</h2>
+        <span id="adminStatus" data-i18n="adminLocked">Locked</span>
+      </div>
+      <div id="adminLogin" class="admin-login">
+        <label for="adminCode" data-i18n="adminCodeLabel">Admin passcode</label>
+        <div class="admin-row">
+          <input id="adminCode" type="password" inputmode="numeric" placeholder="Enter passcode" data-i18n-placeholder="adminCodePlaceholder">
+          <button id="adminLoginButton" type="button" data-i18n="adminLoginButton">Unlock</button>
+        </div>
+        <p class="hint" data-i18n="adminHint">Only admin can see seller phone numbers and share them with genuine buyers.</p>
+      </div>
+      <button id="adminLogoutButton" class="secondary-button" type="button" hidden data-i18n="adminLogoutButton">Lock Admin View</button>
+    </section>
+
+    <section class="form-section" aria-labelledby="formTitle">
+      <h2 id="formTitle" data-i18n="formTitle">Add Property</h2>
+      <form id="listingForm">
+        <div class="field">
+          <label for="title" data-i18n="titleLabel">Title</label>
+          <input id="title" name="title" type="text" required placeholder="2 acre land near road" data-i18n-placeholder="titlePlaceholder">
+        </div>
+
+        <div class="field">
+          <label for="description" data-i18n="descriptionLabel">Description</label>
+          <textarea id="description" name="description" rows="4" required placeholder="Add size, road access, water, documents, or other details" data-i18n-placeholder="descriptionPlaceholder"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="price" data-i18n="priceLabel">Price</label>
+          <input id="price" name="price" type="number" min="0" required placeholder="Price in rupees" data-i18n-placeholder="pricePlaceholder">
+        </div>
+
+        <div class="field">
+          <label for="location" data-i18n="locationLabel">Location</label>
+          <input id="location" name="location" type="text" required placeholder="Village or town name" data-i18n-placeholder="locationPlaceholder">
+        </div>
+
+        <div class="field">
+          <label for="contact" data-i18n="contactLabel">Contact Number</label>
+          <input id="contact" name="contact" type="tel" required placeholder="Mobile number" data-i18n-placeholder="contactPlaceholder">
+          <p class="hint" data-i18n="contactPrivacyHint">This number is hidden from public users. Only admin can see it.</p>
+        </div>
+
+        <div class="field">
+          <label for="image" data-i18n="imageLabel">Property Photo</label>
+          <input id="image" name="image" type="file" accept="image/*">
+        </div>
+
+        <button type="submit" data-i18n="submitButton">Post Free Listing</button>
+      </form>
+    </section>
+
+    <section class="listings-section" aria-labelledby="listingsTitle">
+      <div class="section-heading">
+        <h2 id="listingsTitle" data-i18n="listingsTitle">Property Ads</h2>
+        <span id="listingCount">0 listings</span>
+      </div>
+      <div id="listingsGrid" class="listings-grid"></div>
+      <p id="emptyState" class="empty-state" hidden data-i18n="emptyState">No listings found.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
